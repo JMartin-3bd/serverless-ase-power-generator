@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ase Power Generator</title>
+        <!---Bootstap insert. DO NOT TOUCH BELOW--->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!--This is for my CSS Style sheet-->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!--- place inside bootstrap container--->
+
+        <div class="container py-5">
+
+        <h1 class="text-center mt-5 text-white">Ase Power Generator</h1>
+        <!--Quick immersive blurb about the comic book judgementday and its planet Terabelle-->
+        <div class="card bg-dark text-white shadow-lg mt-4">
+            <div class = "card-body p-4 text-center">
+                <h2 class = "h4">Welcome to Terrabelle</h2>
+          
+        <p class = "mb-3">
+            You have been transported to Terrabelle, a world shaped by ancient bloodlines, forgotten gods, war, and the power of Ase.</p>
+        <p class = "mb-3">
+            Within every soul lies a hidden force - one tied to nature, ancestry, and purpose. </p>
+        <p class = "mb-3">
+            Choose your Nature. Choose your Pull. Discover the power you awaken in the world of <!-- Place J-Day logo here---> Jugdment Day</p>
+        <p class = "fw-bold mb-0">
+            The soul cannot lie. </p>
+
+        </div>
+</div>
+
+<div class="card shadow-lg mt-4">
+    <div class="card-body p-4">
+        <h2 class = "text-center mb-4"> Discover Your Ase</h2>
+
+        <form id="aseForm">
+            <div class = "mb-3">
+                <label for ="participantName" class = "form-label">Name</label>
+
+                <input type="text" class = "form-control" id="participantName" placeholder="Enter your name" required>
+                
+            </div>
+            <div class = "mb-3">
+                <label for="participantEmail" class = "form-label">Email</label>
+                <input type="email" class = "form-control" id="participantEmail" placeholder="Enter your email">
+            </div>
+        
+
+<div class="form-check mt-4">
+    <input class="form-check-input" type="checkbox" id="mailingListConsent">
+    <label class="form-check-label" for="mailingListConsent">
+        Join the Afronomenon Studio mailing list to receive updates on the comic book Judgment Day and other related content.
+    </label>
+</div>
+<!--Dropdown for selecting the participant's preferred communication method-->
+<div class = "mb-3 mt-4">
+    <label for = "race" class= "form-label">Race</label>
+
+    <Select class = "form-select" id="race" required>
+        <option value="" selected disabled>
+            Select Your Race
+        </option>
+        <option value ="human">Human</option>
+        <option value ="divinity">Divinity</option>
+        <option value ="soul-born">Soul-born</option>
+        <option value ="beastial">Beastial</option>
+        <option value ="Nightkin">Nightkin</option>
+    </Select>
+</div>
+<div class = "mb-3">
+    <label for = "pull" class = "form-label">Pull</label>
+
+    <select class = "form-select" id="pull" required>
+        <option value = "" selected disabled> Select Your Pull</option>
+
+        <option value = "light">Light</option>
+        <option value = "wind">Wind</option>
+        <option value = "water">Water</option>
+        <option value = "earth">Earth</option>
+        <option value = "Fire">Fire</option>
+        <option value = "dark">Dark</option>  
+        </select>
+        </div>
+
+<div class = "mb-4">
+    <Label for = "soulTemperament" class = "form-label">Soul Temperament</Label>
+
+    <select class = "form-select" id="soulTemperament" required>
+        <option value = "" select disabled>Select your Soul Temperment</option>
+
+        <option value = "calm">Calm</option>
+        <option value = "compassionate">Compasssionate</option>
+        <option value = "curious">Curious</option>
+        <option value = "disciplined">Disciplined</option>
+        <option value = "fierce">Fierce</option>
+        <option value = "intense">Intense</option>
+        <option value = "patient">Patient</option>
+        <option value = "protective">Protective</option>
+        <option value = "reckless">Reckless</option>
+        <option value = "ambitions">Ambitious</option>
+        <option value = "cunning">Cunnin</option>
+        <option value = "stoic">Stoic</option>
+    </select>
+    </div>
+
+    <button type = "submit" class = "btn btn-primary w-100"> Discover My Ase</button>
+
+    </form>
+</div>
+</div>
+
+<!--Look for a loading animation coding... add suspense to the dossier reveal.-->
+<div class = "card bg-dark text-white shadow-lg mt-4 d-none" id = "analysisLoading">
+
+<div class = "card-body p-4 text-center">
+
+    <h2 class = "h4 mb-4"> Analyzing Soul Resonance...</h2>
+
+    <div class = "progress mb-3">
+        <div class = "progress-bar progress-bar-striped progress-bar-animated" id = "analysisProgress" role = "progressbar" style = "width: 100%" aria-valuenow = "0" aria-valuemin = "0" aria-valuemax = "100"></div>
+    </div>
+    <p class = "mb-0" id = "analysisMessage"> Reading Your Ase...</p>
+</div>
+</div>
+
+
+    <!--In class at the end add d-none at the end. This will hide the card on the first loading.-->
+<div class = "card bg-dark text-white shadow-lg mt-4 d-none"
+id = "aseProfile"> 
+<div class = "card-body p-4">
+
+    <h2 class = "text-center mb-4"> Ase Analysis Complete!</h2>
+    <p class = "text-center fst-italic"> A soul cannot lie.</p>
+
+    <hr>
+
+    <p>
+        <strong>Name:</strong>
+            <span id = "resultName"></span>
+            </p>
+
+            <p>
+        <strong>Race:</strong>
+            <span id = "resultRace"></span>
+            </p>
+
+            <p>
+        <strong>Pull:</strong>
+            <span id = "resultPull"></span>
+            </p>
+
+            <p>
+        <strong>Soul Temperament:</strong>
+            <span id = "resultTemperament"></span>
+            </p>
+
+            <p>
+        <strong>Classification:</strong>
+            <span id = "resultClassification"></span>
+            </p>
+
+            <p>
+        <strong>Lineage:</strong>
+            <span id = "resultLineage"></span>
+            </p>
+
+            <p>
+        <strong>Ase Expression:</strong>
+            <span id = "resultExpression"></span>
+            </p>
+
+            <p>
+        <strong>Signature Technique:</strong>
+            <span id = "resultTechnique"></span>
+            </p>
+
+            <p>
+        <strong>Weakness:</strong>
+            <span id = "resultWeakness"></span>
+            </p>
+
+
+<div class = "mt-4">
+    <h3 class = "h5"> Your Heritage</h3>
+
+    <p id = "resultHeritage"></p>
+</div>
+</div>
+</div>
+
+
+    <div class = "card-body p-4 text-center">
+        <h2 class = "h4">Your Ase</h2>
+        <p class = "mb-3" id="aseResult"></p>
+    </div>
+</div>
+<!---DO NOT TOUCH BELOW-->
+        <script src="script.js"></script>
+    </body>
+</html>

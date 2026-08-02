@@ -1,0 +1,29 @@
+body {
+    background: linear-gradient(135deg, #111827, #452461);
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+.app-card {
+    background-color: #01f72a;
+    border-radius: 16px;
+    padding: 20px;
+    margin: auto;
+    max-width: 700px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#resultBox {
+    background-color: #1e293b;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 20px;
+    color: #ffffff;
+    font-size: 16px;
+
+#powerName {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #facc15;
+}
