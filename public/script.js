@@ -268,6 +268,189 @@ if (race === "soul-born" && pull === "light") {
     };
 }
 
+if (race === "soul-born" && pull === "dark") {
+    const lineage = chooseRandom([
+        "Galaxy School",
+        "Death School"
+        
+//NOTE TO SELF: Find Code to make Universal/Galaxy EXTREMELY Rarer than the other when randomly selected. LIKE 1/50 TIMES CHANCE
+    ]);
+
+   return {
+        classification: "Dark Soul-Born",
+        lineage: lineage,
+        expression: "Death Spirit Manipulation",
+        technique: "Black Serpent Binding",
+        weakness:
+            "Their connection to death spirits can slowly poison their own soul and body.",
+        heritage:
+            "You were born with the ability to understand and manipulate spirits connected to death and very rarely the universe its self. Members of the School of Death serve under King Solomon and proudly bear a magically applied black-and-yellow serpent tattoo, usually placed on the arm. The mark allows Solomon to punish or control those who disobey him."
+    };
+}
+
+if (race === "nightkin" && pull === "dark") {
+    return {
+        classification: "Nightkin",
+        lineage: "Vampyr",
+        expression: "Full Night-Born Vampyr",
+        technique: "Crimson Shadow Feast",
+        weakness:
+            "Feeding on sentient souls grants more power to the night but corrupts the Vampyr making them more susceptable to blood lust.",
+        heritage:
+            "You carry the full expression of a night-born Vampyr. Your bloodline is shaped by hunger, darkness, and an ancient curse that was intended to destroy the Vampyr but instead transformed their existence. As a full blood you belong to one of the four Vampyr Clans(Drake, Akasha, Maximilian, and Selighn)."
+    };
+}
+
+if (race === "nightkin" && pull === "wind") {
+    return {
+        classification: "Nightkin",
+        lineage: "Nocturne",
+        expression: "Soul-Fasting Vampyr",
+        technique: "Silent Gale Step",
+        weakness:
+            "Refusing to feed on beings with souls leaves them physically weaker than other Vampyrs.",
+        heritage:
+            "You are a Nocturne, a Vampyr who refuses to feed on beings with a soul. Your bloodline survives through discipline and restraint, choosing hunger over the corruption caused by feeding on sentient life."
+    };
+}
+
+if (race === "nightkin" && pull === "light") {
+    return {
+        classification: "Daywalker",
+        lineage: "Dhampyr",
+        expression: "Sun-Walking Vampyr",
+        technique: "Daybreak",
+        weakness:
+            "Feeding on humans gradually weakens their ability to survive in sunlight.",
+        heritage:
+            "You are a Dhampyr, a half-Vampyr capable of living in sunlight and aging similarly to a human. However, feeding on humans slowly corrupts this gift, causing your resistance to sunlight to fade but empowering you in the process."
+    };
+}
+
+if (race === "nightkin" && pull === "water") {
+    return {
+        classification: "Nightkin",
+        lineage: "Turned",
+        expression: "New Blood",
+        technique: "Crimson Tide Bind",
+        weakness:
+            "Their hunger and newly awakened senses are difficult to control.",
+        heritage:
+            "You are Bloodbound, a newly turned Vampyr still adjusting to the hunger and changes within your body. Bloodbound often serve as thralls, devotees, or followers of a powerful Vampyr house or clan."
+    };
+}
+
+if (race === "nightkin" && pull === "fire") {
+    return {
+        classification: "Nightkin",
+        lineage: "Wraithe",
+        expression: "Frenzied Vampyr",
+        technique: "Burning Blood Frenzy",
+        weakness:
+            "Their hunger can overwhelm their mind, causing them to lose control and attack without recognizing friend or enemy.",
+        heritage:
+            "You are a Wraithe, a Vampyr whose soul and spirit are being consumed by the body's need to feed. The hunger has nearly taken control, leaving your existence trapped between immense power and total self-destruction."
+    };
+}
+
+if (race === "nightkin" && pull === "earth") {
+    return {
+        classification: "Nightkin",
+        lineage: "Ghoul",
+        expression: "Failed Vampyr Transformation",
+        technique: "Graveborn Crushing Grip",
+        weakness:
+            "Their incomplete transformation causes constant physical decay and an uncontrollable hunger.",
+        heritage:
+            "You are a Ghoul, a human bitten by a Vampyr who escaped before the transformation could be completed. Your body remains trapped between humanity and Nightkin corruption, slowly deteriorating beneath a curse that never fully claimed you. You must find a Vampyr Master before your complete deterioration turns you Zombie."
+    };
+}
+
+if (race === "human" && pull === "fire") {
+    return {
+        classification: "Biotech",
+        lineage: "L3ZR Carrier",
+        expression: "Apprime-Gene Experiment",
+        technique: "Super Strength",
+        weakness:
+            "Their body may reject the unstable Apprime-coded power forced into their genetic structure.",
+        heritage:
+            "You are an L3ZR Carrier, a human created through Confederate States experimentation using stolen Apprime genetic material. Your power is not natural Ase, but an engineered imitation designed to produce the perfect soldier."
+    };
+}
+
+if (race === "human" && pull === "light") {
+    return {
+        classification: "Biotech",
+        lineage: "Augmented",
+        expression: "Enhanced Human Prototype",
+        technique: "Light Speed Reflexes",
+        weakness:
+            "Their artificial enhancements can overload, causing pain, temporary blindness, and nervous-system failure.",
+        heritage:
+            "You are an Augmented human altered through Confederate States experimentation's quest for creating the perfect human. Your abilities are not true Ase, but artificial enhancements designed to increase strength, speed, reflexes, durability, and combat efficiency."
+    };
+}
+if (race === "human" && pull === "water") {
+    return {
+        classification: "Biotech",
+        lineage: "Gene-Spliced",
+        expression: "Gene Modification",
+        technique: "Super Adaptive",
+        weakness:
+            "Their altered DNA may mutate unpredictably under physical stress.",
+        heritage:
+            "You are a Gene-Spliced human created through Confederate States experimentation. Your body was altered using Beastial, Human, and supernatural genetic material to produce abilities beyond normal human limits. This power is not true Ase, but an unstable imitation engineered for military use."
+    };
+}
+
+if (race === "human" && pull === "earth") {
+    return {
+        classification: "Biotech",
+        lineage: "Cybernetic",
+        expression: "Mechanical Combat Augmentation",
+        technique: "Titan Impact",
+        weakness:
+            "Damage to their cybernetic systems can disrupt movement, senses, and combat processing.",
+        heritage:
+            "You are a Cybernetic human rebuilt through Confederate States experimentation. Mechanical systems were fused with your body to increase strength, durability, reflexes, and battlefield efficiency. Your abilities are not true Ase, but engineered power designed to turn humans into weapons."
+    };
+}
+
+if (race === "human" && pull === "dark") {
+    return {
+        classification: "Biotech",
+        lineage: "Experiment Gone Wrong",
+        expression: "Unstable Human Mutation",
+        technique: "Aberration Surge",
+        weakness:
+            "Their body continues to mutate, making their abilities painful and unpredictable.",
+        heritage:
+            "You are the result of a failed Confederate States experiment. Scientists attempted to force supernatural abilities into a human body, but the procedure created an unstable mutation instead. Your power is not true Ase, and every use risks further damaging what remains of your humanity."
+    };
+}
+
+if (race === "human" && pull === "wind") {
+    const lineage = chooseRandom([
+        "Augmented",
+        "Gene-Spliced",
+        "Cybernetic",
+        "L3ZR Carrier",
+        "Experiment Gone Wrong"
+    ]);
+
+    return {
+        classification: "Biotech",
+        lineage: lineage,
+        expression: "Adaptive Combat Experiment",
+        technique: "Velocity Override",
+        weakness:
+            "Their experimental enhancements can malfunction when pushed beyond their engineered limits.",
+        heritage:
+            "You are a human altered through Confederate States experimentation. Your abilities are not true Ase, but an artificial attempt to imitate supernatural power and create the perfect soldier. Your final form depends on which experimental program changed your body."
+    };
+}
+
 // Unkownsection temporary... do not touch till all rules done
         return {
             classification: "Unknown",
@@ -279,25 +462,6 @@ if (race === "soul-born" && pull === "light") {
         };
 }
 
-if (race === "soul-born" && pull === "dark") {
-    const lineage = chooseRandom([
-        "Galaxy School",
-        "Death School"
-        
-//NOTE TO SELF: Find Code to make Universal/Galaxy EXTREMELY Rarer than the other when randomly selected. LIKE 1/50 TIMES CHANCE
-    ]);
-
-   return {
-        classification: "Dark Soul-Born",
-        lineage: "School of Dark Arts",
-        expression: "Death Spirit Manipulation",
-        technique: "Black Serpent Binding",
-        weakness:
-            "Their connection to death spirits can slowly poison their own soul and body.",
-        heritage:
-            "You were born with the ability to understand and manipulate spirits connected to death and very rarely the universe its self. Members of the School of Death serve under King Solomon and proudly bear a magically applied black-and-yellow serpent tattoo, usually placed on the arm. The mark allows Solomon to punish or control those who disobey him."
-    };
-}
 
 function determineTemperamentElement(soulTemperament) {
     if (
