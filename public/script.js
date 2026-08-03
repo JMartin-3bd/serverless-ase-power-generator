@@ -16,6 +16,7 @@ function chooseRandom(options) {
 }
 
 function analyzeSoul(race, pull, soulTemperament) {
+    //  Divinity Rules //
     if (race === "divinity" &&
         pull === "water")
         {
@@ -102,6 +103,172 @@ function analyzeSoul(race, pull, soulTemperament) {
                 };
             }
 
+               //  Beastial Rules //
+
+                if (race === "beastial" &&
+            pull === "fire") 
+            {
+                return {
+                    classification: "Beastial",
+                    lineage: "Lycan",
+                    expression: "Lycanthorpe",
+                    technique: "Sonic Scorch",
+                    weakness: "Their instincts may betray their common sense.",
+                    heritage: "You are a Lycan! Many Lycans are Boudas, descendants of a curse meant to destroy their people beneath the full moon. The curse backfired, instead making bitten humans to being turned 'Were'. Today, Beastials survive beneath the banner of PRIDE and remain at war with the Black Mamba Couldron and King Solomon."
+                };
+            }
+
+             if (race === "beastial" &&
+            pull === "water") 
+            {
+                return {
+                    classification: "Beastial",
+                    lineage: "Pantherathorpe",
+                    expression: "Panthera",
+                    technique: "Prowl",
+                    weakness: "Their speed and stamina decreases when their body becomes dehydrated.",
+                    heritage: "You carry the Panthera Beastial expression, combining feline instincts with the adaptable force of water. Panthera are part of the Beastial nations protected beneath the banner of PRIDE. Their speed, hunting instincts, and battlefield awareness have helped their people survive King Solomon's attempts to destroy them."
+                };
+            }
+
+            if (race === "beastial" &&
+            pull === "earth") 
+            {
+                return {
+                    classification: "Beastial",
+                    lineage: "Scales",
+                    expression: "Reptile Beastial",
+                    technique: "Poison Stone Fangs",
+                    weakness: "The thicker the armor, speed and mobility taks a hit",
+                    heritage: "You carry the Scales Beastial expression, descenting from Drakons marked by armored skin, immense durability, and a powerful connection to the earth. Scales survive beneath the banner of PRIDE, where their natural defenses make them valuable protectors against King Solomon's forces."
+                };
+            }
+
+            if (race === "beastial" && pull === "light") {
+    return {
+        classification: "Beastial",
+        lineage: "Primape",
+        expression: "Beast of Nobility",
+        technique: "Solar Simian",
+        weakness:
+            "Their immense strength drains energy quickly during prolonged combat.",
+        heritage:
+            "You carry the Prime Ape Beastial expression, known for overwhelming strength, intelligence, and natural leadership. Prime Apes stand among the Beastial nations protected by PRIDE, using their power and battlefield intellect to resist King Solomon's attempts to invade the Pridelands."
+    };
+}
+
+            if (race === "beastial" && pull === "wind") {
+                const lineage = chooseRandom([
+                "Fowl",
+                "Feathered-Raptor"
+]);
+
+    return {
+        classification: "Winged Beastial",
+        lineage: lineage,
+        expression: "Sky-Born Beastial",
+        technique: "Razor Wind Dive",
+        weakness:
+            "Their aerial movement becomes limited in enclosed spaces and during severe injury.",
+        heritage:
+            "You carry a winged Beastial expression tied to the open sky. Fowl and Feathered Raptors serve among the Beastial nations protected beneath the banner of PRIDE. Their aerial speed, vision, and hunting instincts make them dangerous scouts and warriors against King Solomon's forces."
+    };
+}
+// Not to self: Do Not Code in Google Doc on your fone!!!!!!! Find an actual code app LMAO. try mimo!!!
+                if (race === "beastial" && pull === "dark") {
+                    const lineage = chooseRandom([
+                    "Black Panthera",
+                    "Moon-bred Lycan",
+                    "Eclipse Scales",
+                    "Ebony Feather",
+                    "Shadow Prime Ape"
+]);
+
+    return {
+        classification: "Black Beastial",
+        lineage: lineage,
+        expression: "Obsidian Beastial",
+        technique: "Umbral Shock and Awe",
+        weakness:
+            "Their power becomes weaker under intense light.",
+        heritage:
+            "You carry a Beastial expression altered by the Dar. Shadow-touched Beastials are rare, feared even among other supernatural races, but they remain part of the nations protected beneath the banner of PRIDE. Their heightened instincts and darkened Ase make them deadly opponents against King Solomon's forces."
+    };
+}
+
+if (race === "soul-born" && pull === "fire") {
+    return {
+        classification: "Fire Soul-Born",
+        lineage: "Fire School",
+        expression: "Spirit Flame Manipulation",
+        technique: "Scorching Spirit Seal",
+        weakness:
+            "Their magic becomes unstable when anger overwhelms their concentration.",
+        heritage:
+            "You were born with the ability to understand and manipulate the spirit of fire. As a member of the Fire School, you shape flame through spiritual knowledge rather than ordinary physical control. Under King Solomon's empire, schools outside the School of Death are outlawed unless specifically permitted in service to the Black Mamba Cauldron."
+    };
+}
+
+if (race === "soul-born" && pull === "water") {
+    return {
+        classification: "Water Soul-Born",
+        lineage: "Maui Soul Surf School",
+        expression: "Spirit Water Manipulation",
+        technique: "Cyclone's Revenge",
+        weakness:
+            "Their magic weakens when they become dehydrated or loase emotional focus",
+        heritage:
+            "You were born with the ability to understand and manipulate the spirit of water. Members of the Water School can influence water by communicating with its spiritual nature rather than controlling it through physical force. Under King Solomon's empire, schools outside the School of Death are outlawed unless specifically permitted by the Black Mamba Cauldron."
+    };
+}
+
+if (race === "soul-born" && pull === "earth") {
+    return {
+        classification: "Earth Soul-Born",
+        lineage: "Terra School of Life",
+        expression: "Spirit Nature Manipulation",
+        technique: "Cave Collapse",
+        weakness:
+            "Artificial environments weaken their connection to living soil.",
+        heritage:
+            "You were born with the ability to understand and manipulate the very spirits within the earth and plants life Terrabelle. The Terra School is outlawed under King Solomon unless its practitioners submit to his control. Many female Nature users bear a magically applied black-and-yellow serpent tattoo that Solomon can use to punish or control them."
+    };
+}
+
+if (race === "soul-born" && pull === "wind") {
+    return {
+        classification: "Wind Soul-Born",
+        lineage: "School of the Clouds",
+        expression: "Spirit Wind Manipulation",
+        technique: "Breath of the Tempest",
+        weakness:
+            "Their magic becomes difficult to control in enclosed spaces or when their breathing is restricted.",
+        heritage:
+            "You were born with the ability to understand and manipulate the spirit of air. Members of the Air School influence wind, pressure, and movement through knowledge of the unseen spirits traveling across Terrabelle. Under King Solomon's empire, schools outside the School of Death are outlawed unless specifically permitted in service to Black Mamba Cauldron."
+    };
+}
+
+if (race === "soul-born" && pull === "light") {
+    const lineage = chooseRandom([
+        "Light School",
+        "Life School",
+        "Holy School"
+//NOTE TO SELF: Find Code to make Holy Rarer than the other two when randomly selected.
+    ]);
+
+    return {
+        classification: "Light Soul-Born",
+        lineage: lineage,
+        expression: "Radiant Spirit Manipulation",
+        technique: "Shine Spirit Seal",
+        weakness:
+            "Their magic weakens when fear or doubt disrupts their spiritual focus.",
+        heritage:
+            "You were born with the ability to understand and manipulate spirits connected to light, life, and holy energy. These schools are outlawed under King Solomon unless their practitioners submit to his authority. The men are hunted while Women belonging to the Nature, Light, Life, and Holy schools are forcibly marked with a magical black-and-yellow serpent tattoo that Solomon can use to control them."
+    };
+}
+
+// Unkownsection temporary... do not touch till all rules done
         return {
             classification: "Unknown",
             lineage: "Unknown Lineage",
@@ -112,6 +279,25 @@ function analyzeSoul(race, pull, soulTemperament) {
         };
 }
 
+if (race === "soul-born" && pull === "dark") {
+    const lineage = chooseRandom([
+        "Galaxy School",
+        "Death School"
+        
+//NOTE TO SELF: Find Code to make Universal/Galaxy EXTREMELY Rarer than the other when randomly selected. LIKE 1/50 TIMES CHANCE
+    ]);
+
+   return {
+        classification: "Dark Soul-Born",
+        lineage: "School of Dark Arts",
+        expression: "Death Spirit Manipulation",
+        technique: "Black Serpent Binding",
+        weakness:
+            "Their connection to death spirits can slowly poison their own soul and body.",
+        heritage:
+            "You were born with the ability to understand and manipulate spirits connected to death and very rarely the universe its self. Members of the School of Death serve under King Solomon and proudly bear a magically applied black-and-yellow serpent tattoo, usually placed on the arm. The mark allows Solomon to punish or control those who disobey him."
+    };
+}
 
 function determineTemperamentElement(soulTemperament) {
     if (
