@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/JMartin-3bd/serverless-ase-power-generator#readme",
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1102.0",
+    "@aws-sdk/lib-dynamodb": "^3.1102.0",
     "express": "^5.2.1"
   }
 }
