@@ -26,8 +26,25 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.post("/api/participants", async function (request, response) {
+    //Basic Validation and requirements for the app
     const participantData = request.body;
+    const requiredFields = [
+        "name",
+        "race",
+        "pull",
+        "soulTemperament"
+    ];
 
+const missingFeilds = requiredFields.filter(function(field) {
+    return !participantData[field];
+});
+
+    if (missingFeilds.length > 0) {
+        return response.status(400).json({
+            massage: "Required participant information is missing.",
+            missingFields: missingFeilds
+        });
+    }
     console.log("Participant received:", participantData);
 
     const participantRecord = {
@@ -46,7 +63,7 @@ app.post("/api/participants", async function (request, response) {
         weakness: participantData.weakness,
         heritage: participantData.heritage,
 
-        
+
         createdAt: new Date().toISOString()
     };
 
