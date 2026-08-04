@@ -546,7 +546,42 @@ console.log("Form submitted.");
 
 
 
-    const participantName = document.getElementById("participantName").value;
+    const participantName = document.getElementById("participantName").value.trim();
+    const participantEmail = document.getElementById("participantEmail").value.trim();
+    const mailingListConsent = document.getElementById("mailingListConsent").checked;
+    document.getElementById("mailingListConsent").outerHTML
+    
+//I broke the mailing list consent somehow by fixing the participant email?????????????
+    
+console.log("Checkbox consent value:", mailingListConsent);
+
+
+
+    const participantData = {
+        name: participantName,
+        email: participantEmail,
+        mailingListConsent: mailingListConsent
+    };
+
+    console.log("Participant data ready:", participantData);
+
+    fetch("/api/participants", {
+        method:"POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: (JSON.stringify(participantData))
+    })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log("Backend response:", data);
+        })
+        .catch(function(error) {
+            console.error("Participant submission failed:", error);
+        });
+
     const race = document.getElementById("race").value;
     const pull = document.getElementById("pull").value;
     const soulTemperament = document.getElementById("soulTemperament").value;
