@@ -35,6 +35,18 @@ app.post("/api/participants", async function (request, response) {
         name: participantData.name,
         email: participantData.email,
         mailingListConsent: participantData.mailingListConsent,
+        race: participantData.race,
+        pull: participantData.pull,
+        soulTemperament: participantData.soulTemperament,
+
+        classification: participantData.classification,
+        lineage: participantData.lineage,
+        expression: participantData.expression,
+        technique: participantData.technique,
+        weakness: participantData.weakness,
+        heritage: participantData.heritage,
+
+        
         createdAt: new Date().toISOString()
     };
 

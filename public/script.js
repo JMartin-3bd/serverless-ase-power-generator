@@ -1,4 +1,4 @@
-console.log("Script loaded successfully.");
+console.log("NEW SCRIPT IS LOADING");
 
 const aseForm = document.getElementById("aseForm");
 
@@ -549,21 +549,36 @@ console.log("Form submitted.");
     const participantName = document.getElementById("participantName").value.trim();
     const participantEmail = document.getElementById("participantEmail").value.trim();
     const mailingListConsent = document.getElementById("mailingListConsent").checked;
-    document.getElementById("mailingListConsent").outerHTML
+    const race = document.getElementById("race").value;
+    const pull = document.getElementById("pull").value;
+    const soulTemperament = document.getElementById("soulTemperament").value;
     
+
 //I broke the mailing list consent somehow by fixing the participant email?????????????
     
 console.log("Checkbox consent value:", mailingListConsent);
 
-
+//Addition of Soul Temperament
+    const baseResult = analyzeSoul(race, pull, soulTemperament);
+    const temperamentElement = determineTemperamentElement(soulTemperament);
+    const aseResult = applyTemperamentModifier(baseResult, pull, temperamentElement);
 
     const participantData = {
         name: participantName,
         email: participantEmail,
-        mailingListConsent: mailingListConsent
+        mailingListConsent: mailingListConsent,
+        race: race,
+        pull: pull,
+        soulTemperament: soulTemperament,
+        classification: aseResult.classification,
+        lineage: aseResult.lineage,
+        expression: aseResult.expression,
+        technique: aseResult.technique,
+        weakness: aseResult.weakness,
+        heritage: aseResult.heritage
     };
 
-    console.log("Participant data ready:", participantData);
+    console.log("Sending to Backend:", participantData);
 
     fetch("/api/participants", {
         method:"POST",
@@ -581,14 +596,6 @@ console.log("Checkbox consent value:", mailingListConsent);
         .catch(function(error) {
             console.error("Participant submission failed:", error);
         });
-
-    const race = document.getElementById("race").value;
-    const pull = document.getElementById("pull").value;
-    const soulTemperament = document.getElementById("soulTemperament").value;
-//Addition of Soul Temperament
-    const baseResult = analyzeSoul(race, pull, soulTemperament);
-    const temperamentElement = determineTemperamentElement(soulTemperament);
-    const aseResult = applyTemperamentModifier(baseResult, pull, temperamentElement);
 
     analysisLoading.classList.remove("d-none");
     aseProfile.classList.add("d-none");
