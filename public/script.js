@@ -504,6 +504,39 @@ if (
 return "unknown";
 }
 
+function applyTemperamentModifier(
+    aseResult,
+    pull,
+    temperamentElement
+) {
+    console.log("Modifier running:", pull, temperamentElement)
+    if (pull === temperamentElement) {
+        aseResult.expression =
+        "Resonant" + aseResult.expression;
+
+        aseResult.technique =
+        aseResult.technique + " - Perfect Resonance";
+
+        aseResult.weakness =
+        aseResult.weakness + " Perfect Resonance increases power but causes faster exhaution.";
+
+    } else {
+        aseResult.expression =
+        temperamentElement + "-influenced " +
+        aseResult.expression;
+
+        aseResult.technique =
+        aseResult.technique + " - " +
+        temperamentElement + " variant";
+
+        aseResult.weakness = 
+        aseResult.weakness + " Conflicting Influence can make technique unstable."
+    }
+
+    return aseResult;
+    }
+    
+
 
 //Form listener should follow//
 aseForm.addEventListener("submit", function (event) {
@@ -517,11 +550,13 @@ console.log("Form submitted.");
     const race = document.getElementById("race").value;
     const pull = document.getElementById("pull").value;
     const soulTemperament = document.getElementById("soulTemperament").value;
-    const aseResult = analyzeSoul(race, pull, soulTemperament);
+//Addition of Soul Temperament
+    const baseResult = analyzeSoul(race, pull, soulTemperament);
+    const temperamentElement = determineTemperamentElement(soulTemperament);
+    const aseResult = applyTemperamentModifier(baseResult, pull, temperamentElement);
+
     analysisLoading.classList.remove("d-none");
     aseProfile.classList.add("d-none");
-
-const temperamentElement = determineTemperamentElement(soulTemperament);
 
 console.log("Temperament element:", temperamentElement);
 
