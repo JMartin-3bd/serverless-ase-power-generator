@@ -6,6 +6,14 @@ const analysisLoading = document.getElementById("analysisLoading");
 
 const aseProfile = document.getElementById("aseProfile");
 
+// Retreve data for the final
+const loadParticipantsButton =
+document.getElementById("loadParticipantsButton");
+
+const participantsTableBody =
+document.getElementById("participantsTableBody");
+
+
 console.log("aseForm:", aseForm);
 console.log("analysisLoading:", analysisLoading);
 console.log("aseProfile:", aseProfile);
@@ -623,4 +631,123 @@ console.log("Loading card should now be visible");
         document.getElementById("resultHeritage").textContent = aseResult.heritage;
     }, 2000);
 });
+
+// Addin a Retreive-> select -> get for final
+// Note to self I DO NOT INCLUDE email from the retrieve.
+
+loadParticipantsButton.addEventListener("click", async function () {
+    loadParticipantsButton.disabled = true;
+    loadParticipantsButton.textContent = "Accessing Records...";
+
+    try {
+        const response = await fetch("/api/participants");
+
+        if (!response.ok) {
+            throw new Error ("Records could nto be retreived.");
+        }
+
+        const data = await response.json();
+
+        participantsTableBody.innerHTML = "";
+
+        data.participants.forEach(function (participant) {
+            const row = document.createElement("tr");
+
+            const participantValues = [
+                participant.name || "NOT RECORDED",
+                participant.race || "NOT RECORDED",
+                participant.pull || "NOT RECORDED",
+                participant.soulTemperament || "NOT RECORDED",
+                participant.lineage || "NOT RECORDED",
+            ];
+
+            participantValues.forEach(function (value) {
+                const tableCell = document.createElement("td");
+                tableCell.textContent = value;
+                row.appendChild(tableCell);
+            });
+
+//adding and Edit function through added Action in HTML
+const actionCell = document.createElement('td');
+
+const editButton = document.createElement("button");
+editButton.type = 'button';
+editButton.className = "btn btn-warning btn-sm";
+editButton.textContent = "Edit";
+editButton.dataset.participantId = participant.participantId;
+
+editButton.addEventListener("click", async function () {
+    const updatedName = prompt(
+        "Enter the updated participant Name:",
+        participant.name || ""
+    );
+
+    if (updatedName === null) {
+        return;
+    }
+
+    const updatedEmail = prompt (
+        "Enter the updated email:",
+        participant.email || ""
+    );
+
+    if (updatedEmail === null) {
+        return;
+    }
+
+    try {
+        console.log ("Update being sent:", {
+            name: updatedName,
+            email:updatedEmail
+        });
+        const response = await fetch(
+            `/api/participants/${participant.participantId}`,
+            {
+                method:"PATCH",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    name: updatedName,
+                    email: updatedEmail
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error (data.message);
+        }
+        alert ("Fugitive record updated successfully.");
+
+        loadParticipantsButton.click();
+    } catch (error) {
+        console.error("Participant update failed:", error);
+        alert("The Fugitibe record could not be updated.");
+    }
+});
+
+actionCell.appendChild(editButton);
+row.appendChild(actionCell);
+
+
+            participantsTableBody.appendChild(row);
+        });
+    }   catch (error) {
+        console.error("Record display failed:", error);
+
+        participantsTableBody.innerHTML = ` 
+        <tr>
+            <td colspan = "6" class = "text-center">
+                Confederate records could not be accessed.
+            </td>
+            </tr>
+            `;
+    }   finally 
+    //YES FINALLY! JEEZ
+    {
+        loadParticipantsButton.disabled = false;
+        loadParticipantsButton.textContent = "View Fugitive Records";
+    }
+    });
+    
 

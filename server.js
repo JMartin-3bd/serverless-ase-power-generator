@@ -6,7 +6,9 @@ const { randomUUID } = require("crypto");
 
 const {
     DynamoDBDocumentClient,
-    PutCommand
+    PutCommand,
+    ScanCommand,
+    UpdateCommand
 } = require("@aws-sdk/lib-dynamodb");
 
 
@@ -88,6 +90,76 @@ try {
         message: "participant could not be saved."
     });
 }
+});
+
+app.get("/api/participants", async function (request, response) {
+    try {
+        const command = new ScanCommand({
+            TableName: TABLE_NAME
+        });
+        
+        const result = await dynamoDB.send(command);
+
+        const participants = result.Items || [];
+
+        response.status(200).json({
+            participants: participants
+        });
+    }
+        catch (error) {
+        console.error ("Participant retrieval failed:", error);
+
+        response.status(500).json({
+            message: "Participants could not be retrieved."
+        });
+    }
+    });
+
+app.patch ("/api/participants/:participantId", async function (request, response){
+    const participantId = request.params.participantId;
+    const name = request.body.name;
+    const email = request.body.email;
+
+    if (!name || name.trim() === "") {
+        return response.status(400).json({
+            message: "A participant name is required."
+        });
+    }
+    try {
+        const command = new UpdateCommand({
+            TableName: TABLE_NAME,
+
+            Key: {participantId: participantId},
+            UpdateExpression: "SET #participantName = :name, email = :email, updatedAt = :updatedAT",
+            ExpressionAttributeNames: {"#participantName": "name"},
+            ExpressionAttributeValues: {
+                ":name":name.trim(), 
+                ":email": email ? email.trim() : "",
+                ":updatedAT": new Date().toISOString()
+            },
+
+            ConditionExpression: "attribute_exists(participantId)",
+            ReturnValues: "ALL_NEW"
+        });
+
+        const result = await dynamoDB.send(command);
+
+        response.status (200).json({
+            message: "Participant updated seuccessfully.",
+            participant: result.Attributes
+        });
+    } catch (error) {
+        console.error("participant updated sucessfully.", error);
+
+            if (error.name === "ConditionalCheckFailedException") {
+                return response.status(404).json({
+                    message: "Participant record was not found."
+                });
+            }
+            response.status(500).json({
+                message: "Participant could not be updated."
+            });
+        }
 });
 
 if (require.main === module){
