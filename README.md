@@ -2,11 +2,11 @@
 
 
 
-This project is supposed to be a dynamic, data driven web app based on my comic boo series 'Judgment Day' published though Afronomenon Studio. https://Afronostudio.com
+This project is supposed to be a dynamic, data driven web app based on my novel trilogy and comic book series 'Judgment Day', published though Afronomenon Studio. https://Afronostudio.com
 
 
 
-The Idea is if I am at a Comic-Con or even online while talkin to a reader-> potential customer about the lore of Judgment Day I can direct them to the app to give them an experience oppose to just being "sold" to. They would enter their name, email, race, elemental pull, and soul temperament "creating" their own character. The application then generates a "randomized" character using pre-defined lore rules generating a dossier like profile.
+The Idea is if I am at a Comic-Con or even online talking to a reader/potential customer about the lore of Judgment Day, I can direct them to the app to give them an experience oppose to just being "sold" to. They would enter their name, email, race, elemental pull, and soul temperament "creating" their own character. The application then generates a "randomized" character using pre-defined lore rules listing them like a dossier profile.
 
 
 
@@ -196,7 +196,7 @@ Bestial/Pride
 
 Nightkin/Vampyre
 
-Biotech/Humans \[Biotech more effective as a pull]
+~~Biotech~~/Humans \[Biotech more effective as a pull]
 
 
 
