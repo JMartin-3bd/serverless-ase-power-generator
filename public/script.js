@@ -570,6 +570,12 @@ console.log("Checkbox consent value:", mailingListConsent);
     const baseResult = analyzeSoul(race, pull, soulTemperament);
     const temperamentElement = determineTemperamentElement(soulTemperament);
     const aseResult = applyTemperamentModifier(baseResult, pull, temperamentElement);
+    const threatLevel = chooseRandom([
+        "LOW",
+        "MODERATE",
+        "HIGH",
+        "EXTREME"
+    ]);
 
     const participantData = {
         name: participantName,
@@ -629,6 +635,22 @@ console.log("Loading card should now be visible");
         document.getElementById("resultTechnique").textContent = aseResult.technique;
         document.getElementById("resultWeakness").textContent = aseResult.weakness;
         document.getElementById("resultHeritage").textContent = aseResult.heritage;
+        document.getElementById("resultThreatLevel").textContent = threatLevel;
+        
+        
+        const threatBadge = document.getElementById("resultThreatLevel");
+
+        threatBadge.classList.remove(
+            "threat-low",
+            "threat-moderate",
+            "threat-high",
+            "threat-extreme"
+        );
+
+        threatBadge.classList.add(
+            "threat-" + threatLevel.toLowerCase()
+        );
+        
     }, 2000);
 });
 
