@@ -153,3 +153,62 @@ box-shadow:
         0 0 16px rgba(190, 100, 255, 0.8),
         0 0 30px rgba(120, 40, 180, 0.45),        
 }
+.terrabelle-intro {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 14, 35, 0.94),
+            rgba(55, 24, 78, 0.88)
+        ) !important;
+
+        border: 5px solid rgba(190, 100, 255, 0.45);
+        border-radius: 18px;
+
+        box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.45), 
+        0 0 22px rgba(155, 70, 255, 0.18);
+
+        backdrop-filter: blur(8px);
+}
+
+.terrabelle-intro h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.ase-word {
+    display: inline-block;
+
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+
+    background: linear-gradient(98deg,
+    #ffffff,
+    #d8a8ff,
+    #9f4cff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 12px rgba(210, 150, 255, 0.7),
+        0 0 28px rgba(150, 60, 255, 0.65);
+
+    animation: aseGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes aseGlow {
+    from {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    to {
+        transform: scale(1.08);
+        filter: brightness(1.35);
+    }
+    
+}
